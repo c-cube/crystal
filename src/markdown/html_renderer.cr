@@ -1,6 +1,6 @@
 require "./renderer"
 
-class Crystal::Doc::Markdown::HTMLRenderer
+class Markdown::HTMLRenderer
   include Renderer
 
   def initialize(@io : IO)
