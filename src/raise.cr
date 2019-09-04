@@ -208,6 +208,8 @@ end
   # This will set the exception's callstack if it hasn't been already.
   # Re-raising a previously catched exception won't replace the callstack.
   def raise(exception : Exception) : NoReturn
+    LibC.dprintf 2, "debug raise: %s\n", (exception.message || "(???)")
+
     {% if flag?(:debug_raise) %}
       STDERR.puts
       STDERR.puts "Attempting to raise: "
